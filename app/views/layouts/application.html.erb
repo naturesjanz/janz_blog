@@ -27,7 +27,8 @@
 
 
 <% if !user_signed_in? %>
-  	<p class="sign_in">Admin Login </p>
+  	<%= link_to '<button type="button">Log In</button>'.html_safe, new_user_session_path %>
+    <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_registration_path %>
     <% end %>
 
   </div>
@@ -43,8 +44,10 @@
   <% if user_signed_in? %>
 			
 			<div class="buttons">
-		<%= link_to '<button type="button">New Post</button>'.html_safe, new_post_path %> </
-<button class="button">Log Out</button>
+		<%= link_to '<button type="button">New Post</button>'.html_safe, new_post_path %> 
+    <%= link_to '<button type="button">Log Out</button>'.html_safe, destroy_user_session_path, :method => :delete %>
+
+
 
 </div>
 <% end %>
@@ -55,7 +58,23 @@
 <%= yield %>
 
 
-    
+     <style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+</style>
+
+<div class="footer">
+  <p> © 2018 Copyright: Janz Kun</p>
+
+
+</div> 
     
 </div>
     
